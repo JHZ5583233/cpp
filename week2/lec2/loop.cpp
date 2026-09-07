@@ -4,8 +4,8 @@ int main() {
     int limit;
     std::cin >> limit;
 
-    for (int p = 0; p <= limit; p++) {
-        std::cout << p << "\n";
+    for (int i = 0; i <= limit; i++) {
+        std::cout << i << "\n";
     }
 
     for (int y = limit; y >=0; y--) {
