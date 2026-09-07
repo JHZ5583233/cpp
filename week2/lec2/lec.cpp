@@ -1,4 +1,5 @@
 #include <iostream>
+#include <new>
 
 int main() {
     while(1) {
@@ -38,7 +39,29 @@ int main() {
             default:
                 std::cout << "Whaat\n";
         }
+        
+        while (s > -1) {
+            std::cout << s << "\n";
+            s--;
+        }
 
+        std::cout << "countup till when\n";
+        int start = 1;
+        int limit;
+        std::cin >> limit;
+
+        while (start <= limit) {
+            std::cout << start << "\n";
+            start++;
+        }
+
+        int pos;
+        do{
+            std::cin >> pos;
+        } while (pos < 0);
+
+        std::cout << pos << "\n";
+        
         std::cout << std::flush;
     }
 
