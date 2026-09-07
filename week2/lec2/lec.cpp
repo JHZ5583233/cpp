@@ -5,9 +5,9 @@ int main() {
         std::cout << "grade\n";
         int s;
         std::cin >> s;
-    
+
         std::cout << s << "\n";
-    
+
         if (s < 5) {
             std::cout << "no\n";
         } else if (s <  21) {
@@ -38,7 +38,7 @@ int main() {
             default:
                 std::cout << "Whaat\n";
         }
-    
+
         std::cout << std::flush;
     }
 
