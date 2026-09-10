@@ -14,15 +14,19 @@ int main() {
         std::cin >> y;
 
         if (command == "ADD") {
-            std::cout << x + y << std::endl;
+            std::cout << x + y;
         } else if (command == "SUB") {
-            std::cout << x - y << std::endl;
+            std::cout << x - y;
         } else if (command == "MUL") {
-            std::cout << x * y << std::endl;
+            std::cout << x * y;
         } else if (command == "DIV") {
-            std::cout << x / y << std::endl;
+            std::cout << x / y;
         } else if (command == "MOD") {
-            std::cout << x % y << std::endl;
+            std::cout << x % y;
+        }
+
+        if (i != amount -1) {
+            std::cout << "\n";
         }
     }
     
