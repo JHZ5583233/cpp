@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-class BankAccount{
+class BankAccount {
     private:
         int accountNumber, balance;
 
@@ -18,40 +18,40 @@ class BankAccount{
         
         void withdraw(int amount) {
             if (amount > this->balance) {
-                std::cout << "INSUFFICIENT_FUNDS";
+                std::cout << "INSUFFICIENT_FUNDS" << std::endl;
                 return;
             }
-
+            
             this->balance -= amount;
         }
         
-        void getBalance() {
-            std::cout << this->balance;
+        int getBalance() const {
+            return this->balance;
         }
 
 };
 
 int main() {
     int op, number, bal;
-
-    scanf("%d %d", &number, &bal);
+    std::cin >> op;
+    std::cin >> number >> bal;
 
     BankAccount account = BankAccount(number, bal);
 
-    std::string operation;
-    int amount;
     for (int i = 0; i < op; i++) {
-        std::cin >> operation;
-        std::cin >> amount;
+        std::string operation;
+        int amount;
+        std::cin >> operation >> amount;
 
         if (operation == "DEPOSIT") {
             account.deposit(amount);
         } else if (operation == "WITHDRAW") {
             account.withdraw(amount);
         }
+        
+        // Print balance after each operation
+        std::cout << account.getBalance() << std::endl;
     }
 
-    account.getBalance();
-    
     return 0;
 }
