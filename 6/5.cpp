@@ -5,7 +5,7 @@
 
 class Inventory {
     private:
-        std::size_t id_gen;
+        static std::size_t id_gen;
         std::size_t *array;
         std::size_t amount;
 
@@ -26,7 +26,6 @@ class Inventory {
         }
     public:
         Inventory(std::size_t size) {
-            this->id_gen = 0;
             this->amount = 0;
             this->array = new std::size_t[this->amount];
 
@@ -42,11 +41,10 @@ class Inventory {
         void sell(std::size_t id) {
             this->reallocate(id);
 
-            std::cout << "Sold product with Id " << id << "\n";
+            std::cout << "sold product with id: " << id << "\n";
         }
 
         void add() {
-            this->id_gen++;
             std::size_t *new_array = new std::size_t[amount + 1];
 
             for (int i = 0; i < amount; i++) {
@@ -56,6 +54,7 @@ class Inventory {
             new_array[amount] = this->id_gen;
             delete [] array;
             array = new_array;
+            this->id_gen++;
             this->amount++;
         }
 
@@ -68,6 +67,8 @@ class Inventory {
         }
 };
 
+std::size_t Inventory::id_gen = 0;
+
 int main() {
     std::size_t n;
     std::cin >> n;
@@ -79,8 +80,6 @@ int main() {
         if (command == "Add") {
             inv.add();
         } else if (command == "Sell") {
-        
-        }{
             std::size_t id;
             std::cin >> id;
 
@@ -89,5 +88,4 @@ int main() {
     }
 
     inv.print();
-    std::cout << std::endl;
 }
