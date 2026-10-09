@@ -9,16 +9,27 @@ int main() {
         return -1;
     }
     
-    int *matrix = new int[n];
+    int *matrix = new int[n * n];
 
     for (int i = 0; i < n; i++) {
-        int *vector = new int[n];
-
         for (int j = 0; j < n; j++) {
-            std::cin >> vector[j];
+            std::cin >> matrix[j + (i * n)];
         }
-
-        matrix[i] = vector;
     }
-    
+
+    int prim = 0;
+    int sec = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i == j) {
+                prim += matrix[(i * n) + j];
+
+                sec += matrix[(i * n) + (n - j - 1)];
+            }
+        }
+    }
+
+    std::cout << prim << " " << sec << std::endl;
+
+    delete [] matrix;
 }
